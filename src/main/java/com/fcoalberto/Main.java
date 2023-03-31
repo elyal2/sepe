@@ -39,6 +39,30 @@ public class Main {
     public Main() {
     }
 
+    /**
+     * The following method validates de imput argument to check:
+     * <ul>
+     * <li>that there is none or one argument,
+     * <li>that the argument is a file,
+     * <li>that the file exists,
+     * <li>that the file is a .xlsx file
+     * </ul>
+     * @param args
+     * @throws Exception
+     */
+    public static void validateExcelFile(String[] args) throws Exception {
+        if (args.length > 2) {
+            throw new Exception("El nÃ®mero de argumentos es incorrecto");
+        }
+        if (args.length == 2) {
+            if (!args[1].endsWith(".xlsx")) {
+                throw new Exception("El segundo argumento debe ser un fichero .xlsx");
+            }
+        }
+
+    }
+
+
     public static void main(String[] args) throws Exception {
         String excel = "datos.xlsx";
         if (args.length > 0) {
